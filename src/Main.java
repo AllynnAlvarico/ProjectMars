@@ -1,18 +1,24 @@
 import java.util.Scanner;
-
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
+
     public static void main(String[] args) {
+//        GUI GUI = new GUI();
+//        GUI.windowTable();
 
         Rocket objRocket = new Rocket();
-        //ETA objE = new ETA();
+        SystemLogs SysLogs = new SystemLogs();
+        ClockTime time = new ClockTime();
 
-        System.out.println(objRocket.getPower() + System.lineSeparator() + objRocket.getAngle());
-        while(objRocket.getDistance()>0) {
-            System.out.println("Rocket of descent rate per second: " + objRocket.getVSpeed());
-            System.out.println("Rocket distance to ground: " + objRocket.getDistance());
+
+        while((objRocket.getDistance()) > 0) {
+            SysLogs.DashPanel(objRocket.getVSpeed(),time.getSeconds(),time.getMinutes(),objRocket.getDistance(),objRocket.getAngle(),objRocket,time);
         }
+        SysLogs.DashPanel(objRocket.getVSpeed(),time.getSeconds(),time.getMinutes(),objRocket.getDistance(),objRocket.getAngle(),objRocket,time);
+        System.out.println("Rocket has landed");
+
+
+
+
 
     }
 }
