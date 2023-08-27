@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Rocket {
     World objWorld = new World();
-//    ClockTime objTime = new ClockTime();
+    ClockTime objTime = new ClockTime();
     Scanner in = new Scanner(System.in);
     boolean invalidPower = true;
     boolean invalidAngle = true;
@@ -13,9 +13,9 @@ public class Rocket {
     private float angle = 0;
     private int r_mass = 0;
     private double vSpeed = 0;
+    private double v2Speed = 0;
+    double acceleration = (getPower()-objWorld.getMarsGravity());
     private int hSpeed = 0;
-
-//    private double newSpeed = 0;
     private double distance = objWorld.getAltitude();
     private double time = 0;
     private int fuel = 500;
@@ -32,7 +32,7 @@ public class Rocket {
                     setAngle();//this is the angle of the rocket -90 to 90.
                     setRocketMass();//this is for setting the rockets weight in Kilograms.
                     /*--------------------------------------------------------------------
-                    //setVSpeed();//this the velocity of the rocket after the calculation.
+                    setVSpeed();//this the velocity of the rocket after the calculation.
                     //setDistance();//this is the rate of descent of the rocket.
                     ----------------------------------------------------------------------*/
 //                    setNewSpeed();//this is to get new speed of the descent rate of the rocket.
@@ -94,13 +94,13 @@ public class Rocket {
     }
     public void setHSpeed(){
     }
+
     public void setVSpeed(){
-        vSpeed = getPower() + objWorld.getMarsGravity();
-        //vSpeed = getPower() + objWorld.getEarthGravity();
+        objTime.setFlightTime();
+        v2Speed = (acceleration * objTime.getSeconds());
+        vSpeed += v2Speed;
+        //vSpeed = getPower() - objWorld.getEarthGravity();
     }
-/*    public void setNewSpeed(){
-        this.newSpeed = 0.5 * Math.abs(getVSpeed()) * objTime.getSeconds();
-    }*/
     public void setDistance(){
         this.distance += getVSpeed();
     }
@@ -113,9 +113,6 @@ public class Rocket {
     public double getDistance() {
         return this.distance;}
     public int getFuel() {return this.fuel;}
-   /* public double getNewSpeed(){
-        return this.newSpeed;
-    }*/
     public void calculate(Rocket rocket){
         rocket.setVSpeed();
         rocket.setDistance();

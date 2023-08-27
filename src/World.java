@@ -1,7 +1,7 @@
 public class World {
-    double marsGravity = -3.711;
-    double earthGravity = -9.8;
-    int Y = 1000;
+    double marsGravity = 3.72076;
+    double earthGravity = 9.8;
+    int Y = 10000;
     int X = 6999;
 
     public double getMarsGravity(){
