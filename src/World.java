@@ -4,6 +4,7 @@ public class World {
     int Y = 10000;
     int X = 6999;
 
+
     public double getMarsGravity(){
         return this.marsGravity;
     }
