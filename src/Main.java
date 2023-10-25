@@ -28,6 +28,7 @@ public class Main {
     num1 = num1 + 10;
 
     System.out.println("result: " + num1);
+    System.out.println("Hello");
 
     }
 }
