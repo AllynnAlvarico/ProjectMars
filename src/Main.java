@@ -5,6 +5,9 @@ public class Main {
 //        GUI GUI = new GUI();
 //        GUI.windowTable();
 
+        Scanner inp = new Scanner(System.in);
+        int num1;
+
         Rocket objRocket = new Rocket();
         SystemLogs SysLogs = new SystemLogs();
         ClockTime time = new ClockTime();
@@ -19,7 +22,12 @@ public class Main {
 //        System.out.println("Rocket has landed");
 
 
+    System.out.println("Enter first number: ");
+    num1 = inp.nextInt();
 
+    num1 = num1 + 10;
+
+    System.out.println("result: " + num1);
 
     }
 }
